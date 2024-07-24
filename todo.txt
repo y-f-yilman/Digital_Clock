@@ -1,0 +1,2 @@
+* Regarding clock control via button:
+- impelemt a stop/run reg on the digital clock module if necessary
