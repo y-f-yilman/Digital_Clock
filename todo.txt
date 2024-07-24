@@ -1,2 +1,4 @@
-* Regarding clock control via button:
+* Regarding clock control via button and switches:
 - impelemt a stop/run reg on the digital clock module if necessary
+- modify the second control module to fit the clock running if necessary
+- compensate for the unmarked 6-bit numbers for the seconds (60,61,62,63)
