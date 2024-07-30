@@ -4,6 +4,7 @@ module digital_clock (
     input time_ow,                      // Asynchronous reset signal to overwrite time
     input [16:0] time_in,               // Input time in the format hhhhh:mmmmmm:ssssss (5 bits for hours, 6 bits for minutes, 6 bits for seconds)
     output [4:0] hour_out,              // 5-bit hour output to feed the calender module
+    output [5:0] sec_out,               // 6-bit seconds output to display using leds
     output [3:0] sec_1s, sec_10s,       // BCD outputs for seconds
     output [3:0] min_1s, min_10s,       // BCD outputs for minutes
     output [3:0] hr_1s, hr_10s          // BCD outputs for hours
@@ -17,8 +18,8 @@ module digital_clock (
     // Registers to store the current time
     reg [5:0] sec_reg, min_reg;
     reg [4:0] hour_reg;
-    assign time_out = {hour_in, min_in, sec_reg};
-
+    assign hour_out = hour_reg;
+    assign sec_out = sec_reg;
     // Handle seconds
     always @(posedge clk_1hz or posedge time_ow) begin
         if (time_ow) begin

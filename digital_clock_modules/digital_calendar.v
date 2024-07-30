@@ -4,7 +4,10 @@ module digital_calendar#(parameter YEARRES = 12)(
     input date_ow,      // Asynchronous reset signal to overwrite date
     input [4:0] hour_in, // Hour input signal
     input [(YEARRES+8):0] date_in, // Date input signal in the format ddddd_mmmm_yyyyyyyyyyyy
-    output [(YEARRES+8):0] date_out // Date output signal
+    output [3:0] day_1s, day_10s,       // BCD outputs for days
+    output [3:0] month_1s, month_10s,       // BCD outputs for months
+    output [3:0] year_1s, year_10s, year_100s, year_1000s          // BCD outputs for years
+
 );
 
     // Separate the input date into day, month, and year
@@ -24,9 +27,6 @@ module digital_calendar#(parameter YEARRES = 12)(
     // Signals to detect a new day, new month, and new year
     reg new_day;
     wire new_year, new_month;
-
-    // Combine the date registers into the output date
-    assign date_out = {day_reg, month_reg, year_reg};
 
     // Edge detection for year and month changes
     assign new_year = (month_reg == 4'd1) & (month_reg_del != 4'd1);
@@ -90,5 +90,16 @@ module digital_calendar#(parameter YEARRES = 12)(
             endcase
         end
     end
+
+    // convert binary values to output bcd values
+    assign day_10s = day_reg / 10;
+    assign day_1s  = day_reg % 10;
+    assign month_10s = month_reg / 10;
+    assign month_1s  = month_reg % 10;
+    assign year_1000s = year_reg / 1000;
+    assign year_100s  = (year_reg % 1000)/100;
+    assign year_10s   = (year_reg % 100)/10;
+    assign year_1s    = year_reg % 10;
+
 endmodule
 
