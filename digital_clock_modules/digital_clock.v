@@ -1,9 +1,11 @@
 // Digital Clock Module
 module digital_clock (
-    input clk_1hz,      // 1 Hz clock signal (ticks once per second)
-    input time_ow,      // Asynchronous reset signal to overwrite time
-    input [16:0] time_in, // Input time in the format hhhhh:mmmmmm:ssssss (5 bits for hours, 6 bits for minutes, 6 bits for seconds)
-    output [16:0] time_out // Output time in the same format
+    input clk_1hz,                      // 1 Hz clock signal (ticks once per second)
+    input time_ow,                      // Asynchronous reset signal to overwrite time
+    input [16:0] time_in,               // Input time in the format hhhhh:mmmmmm:ssssss (5 bits for hours, 6 bits for minutes, 6 bits for seconds)
+    output [3:0] sec_1s, sec_10s,       // BCD outputs for seconds
+    output [3:0] min_1s, min_10s,       // BCD outputs for minutes
+    output [3:0] hr_1s, hr_10s          // BCD outputs for hours
 );
 
     // Separate the input time into hours, minutes, and seconds
@@ -14,7 +16,6 @@ module digital_clock (
     // Registers to store the current time
     reg [5:0] sec_reg, min_reg;
     reg [4:0] hour_reg;
-    assign time_out = {hour_reg, min_reg, sec_reg};
 
     // Handle seconds
     always @(posedge clk_1hz or posedge time_ow) begin
@@ -64,5 +65,14 @@ module digital_clock (
             end
         end
     end
+    
+    // convert binary values to output bcd values
+    assign sec_10s = sec_reg / 10;
+    assign sec_1s  = sec_reg % 10;
+    assign min_10s = min_reg / 10;
+    assign min_1s  = min_reg % 10;
+    assign hr_10s  = hour_reg / 10;
+    assign hr_1s   = hour_reg % 10;    
+
 endmodule
 
