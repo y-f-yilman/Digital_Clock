@@ -17,7 +17,7 @@ module digital_clock (
     // Registers to store the current time
     reg [5:0] sec_reg, min_reg;
     reg [4:0] hour_reg;
-    assign {hour_in, min_in, sec_reg} = time_out;
+    assign time_out = {hour_in, min_in, sec_reg};
 
     // Handle seconds
     always @(posedge clk_1hz or posedge time_ow) begin
