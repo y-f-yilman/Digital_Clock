@@ -1,12 +1,12 @@
 // Digital Calendar Module
 module digital_calendar#(parameter YEARRES = 12)(
-    input clk,          // System clock signal
-    input date_ow,      // Asynchronous reset signal to overwrite date
-    input [4:0] hour_in, // Hour input signal
-    input [(YEARRES+8):0] date_in, // Date input signal in the format ddddd_mmmm_yyyyyyyyyyyy
-    output [3:0] day_1s, day_10s,       // BCD outputs for days
-    output [3:0] month_1s, month_10s,       // BCD outputs for months
-    output [3:0] year_1s, year_10s, year_100s, year_1000s          // BCD outputs for years
+    input clk,                                              // System clock signal
+    input date_ow,                                          // Overwrite date
+    input [4:0] hour_in,                                    // Hour input signal
+    input [(YEARRES+8):0] date_in,                          // Date input signal in the format ddddd_mmmm_yyyyyyyyyyyy
+    output [3:0] day_1s, day_10s,                           // BCD outputs for days
+    output [3:0] month_1s, month_10s,                       // BCD outputs for months
+    output [3:0] year_1s, year_10s, year_100s, year_1000s   // BCD outputs for years
 
 );
 
