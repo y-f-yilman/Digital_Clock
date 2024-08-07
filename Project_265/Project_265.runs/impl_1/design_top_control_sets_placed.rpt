@@ -1,0 +1,223 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Wed Aug  7 21:44:21 2024
+| Host         : OzgurArkan running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file design_top_control_sets_placed.rpt
+| Design       : design_top
+| Device       : xa7a35t
+---------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |   150 |
+| Unused register locations in slices containing registers |   879 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      1 |          115 |
+|      2 |            1 |
+|      4 |            4 |
+|      5 |            1 |
+|      6 |            1 |
+|      7 |            2 |
+|      8 |           17 |
+|     10 |            2 |
+|     12 |            2 |
+|    16+ |            5 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             150 |           57 |
+| No           | No                    | Yes                    |              77 |           56 |
+| No           | Yes                   | No                     |              65 |           46 |
+| Yes          | No                    | No                     |             114 |           29 |
+| Yes          | No                    | Yes                    |             187 |           82 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------+--------------------------------------------------------------+-----------------------------------------+------------------+----------------+
+|          Clock Signal          |                         Enable Signal                        |             Set/Reset Signal            | Slice Load Count | Bel Load Count |
++--------------------------------+--------------------------------------------------------------+-----------------------------------------+------------------+----------------+
+|  uart_demod/date_out_reg[8]_1  |                                                              | uart_demod/date_out_reg[8]_0            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[18]_1           |                1 |              1 |
+|  uart_demod/date_out_reg[10]_1 |                                                              | uart_demod/date_out_reg[10]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[19]_1 |                                                              | uart_demod/date_out_reg[19]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[14]_1 |                                                              | uart_demod/date_out_reg[14]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[1]_1  |                                                              | uart_demod/date_out_reg[1]_0            |                1 |              1 |
+|  uart_demod/date_out_reg[20]_1 |                                                              | uart_demod/date_out_reg[20]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[12]_1 |                                                              | uart_demod/date_out_reg[12]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[16]_1 |                                                              | uart_demod/date_out_reg[16]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[13]_1 |                                                              | uart_demod/date_out_reg[13]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[18]_1 |                                                              | uart_demod/date_out_reg[18]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[0]_1  |                                                              | uart_demod/date_out_reg[0]_0            |                1 |              1 |
+|  uart_demod/date_out_reg[11]_1 |                                                              | uart_demod/date_out_reg[11]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[15]_1 |                                                              | uart_demod/date_out_reg[15]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[17]_1 |                                                              | uart_demod/date_out_reg[17]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[5]_1  |                                                              | uart_demod/date_out_reg[5]_0            |                1 |              1 |
+|  uart_demod/date_out_reg[4]_1  |                                                              | uart_demod/date_out_reg[4]_0            |                1 |              1 |
+|  uart_demod/date_out_reg[7]_1  |                                                              | uart_demod/date_out_reg[7]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[14]_1 |                                                              | uart_demod/time_out_reg[14]_0           |                1 |              1 |
+|  uart_demod/date_out_reg[6]_1  |                                                              | uart_demod/date_out_reg[6]_0            |                1 |              1 |
+|  uart_demod/date_out_reg[3]_1  |                                                              | uart_demod/date_out_reg[3]_0            |                1 |              1 |
+|  uart_demod/date_out_reg[2]_1  |                                                              | uart_demod/date_out_reg[2]_0            |                1 |              1 |
+|  uart_demod/date_out_reg[9]_1  |                                                              | uart_demod/date_out_reg[9]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[6]_1  |                                                              | uart_demod/time_out_reg[6]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[8]_1  |                                                              | uart_demod/time_out_reg[8]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[16]_1 |                                                              | uart_demod/time_out_reg[16]_0           |                1 |              1 |
+|  uart_demod/time_out_reg[12]_1 |                                                              | uart_demod/time_out_reg[12]_0           |                1 |              1 |
+|  uart_demod/time_out_reg[3]_1  |                                                              | uart_demod/time_out_reg[3]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[4]_1  |                                                              | uart_demod/time_out_reg[4]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[0]_1  |                                                              | uart_demod/time_out_reg[0]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[11]_1 |                                                              | uart_demod/time_out_reg[11]_0           |                1 |              1 |
+|  uart_demod/time_out_reg[5]_1  |                                                              | uart_demod/time_out_reg[5]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[13]_1 |                                                              | uart_demod/time_out_reg[13]_0           |                1 |              1 |
+|  uart_demod/time_out_reg[7]_1  |                                                              | uart_demod/time_out_reg[7]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[9]_1  |                                                              | uart_demod/time_out_reg[9]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[10]_1 |                                                              | uart_demod/time_out_reg[10]_0           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[11]_1           |                1 |              1 |
+|  uart_demod/time_out_reg[15]_1 |                                                              | uart_demod/time_out_reg[15]_0           |                1 |              1 |
+|  uart_demod/time_out_reg[1]_1  |                                                              | uart_demod/time_out_reg[1]_0            |                1 |              1 |
+|  uart_demod/time_out_reg[2]_1  |                                                              | uart_demod/time_out_reg[2]_0            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[15]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[17]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[9]_1            |                1 |              1 |
+|  clk_100MHz_IBUF_BUFG          | uart_trans/uart_tx_inst/tx_i_1_n_0                           | reset_IBUF                              |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[10]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[11]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[13]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[1]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[14]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[17]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[20]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[2]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[16]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[15]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[12]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[18]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[19]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[0]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[5]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[7]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[8]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[9]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[3]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[6]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/date_out_reg[4]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[2]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[16]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[12]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[5]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[15]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[3]_1            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[4]_1            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[0]_1            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[5]_1            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[9]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[11]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[14]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[13]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[0]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[1]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[4]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[10]_0           |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[1]_1            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[2]_1            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[3]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[6]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[8]_0            |                1 |              1 |
+|  clk                           |                                                              | uart_demod/time_out_reg[7]_0            |                1 |              1 |
+|  clk                           | clk_and_cal/clock/hour_reg[4]_P_i_1_n_0                      | uart_demod/time_out_reg[16]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/clock/hour_reg[4]_P_i_1_n_0                      | uart_demod/time_out_reg[12]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/clock/hour_reg[4]_P_i_1_n_0                      | uart_demod/time_out_reg[13]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/clock/hour_reg[4]_P_i_1_n_0                      | uart_demod/time_out_reg[14]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/clock/hour_reg[4]_P_i_1_n_0                      | uart_demod/time_out_reg[15]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/clock/min_reg[5]_P_i_1_n_0                       | uart_demod/time_out_reg[6]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/clock/min_reg[5]_P_i_1_n_0                       | uart_demod/time_out_reg[8]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/clock/min_reg[5]_P_i_1_n_0                       | uart_demod/time_out_reg[11]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/clock/min_reg[5]_P_i_1_n_0                       | uart_demod/time_out_reg[7]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/clock/min_reg[5]_P_i_1_n_0                       | uart_demod/time_out_reg[9]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/clock/min_reg[5]_P_i_1_n_0                       | uart_demod/time_out_reg[10]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/day_reg[4]_P_i_1_n_0                         | uart_demod/date_out_reg[1]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/day_reg[4]_P_i_1_n_0                         | uart_demod/date_out_reg[0]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/day_reg[4]_P_i_1_n_0                         | uart_demod/date_out_reg[4]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/day_reg[4]_P_i_1_n_0                         | uart_demod/date_out_reg[3]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/day_reg[4]_P_i_1_n_0                         | uart_demod/date_out_reg[2]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/month_reg[3]_P_i_1_n_0                       | uart_demod/date_out_reg[5]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/month_reg[3]_P_i_1_n_0                       | uart_demod/date_out_reg[7]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/month_reg[3]_P_i_1_n_0                       | uart_demod/date_out_reg[8]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/month_reg[3]_P_i_1_n_0                       | uart_demod/date_out_reg[6]_1            |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[10]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[19]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[14]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[20]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[12]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[16]_1           |                1 |              1 |
+|  clk                           | clk_and_cal/cal/year_reg[11]_P_i_1_n_0                       | uart_demod/date_out_reg[13]_1           |                1 |              1 |
+|  sev_seg/refresh_clk           |                                                              |                                         |                1 |              2 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/E[0]                                   | reset_IBUF                              |                1 |              4 |
+|  clk_100MHz_IBUF_BUFG          | uart_trans/uart_tx_inst/s_next                               | reset_IBUF                              |                1 |              4 |
+|  clk_100MHz_IBUF_BUFG          | uart_trans/uart_rx_inst/s_next                               | reset_IBUF                              |                1 |              4 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/s_next                                 | reset_IBUF                              |                2 |              4 |
+|  clk_100MHz_IBUF_BUFG          | uart_trans/uart_rx_inst/E[0]                                 | reset_IBUF                              |                1 |              5 |
+|  clk_100MHz_IBUF_BUFG          | uart_trans/uart_tx_inst/b_next_0                             | reset_IBUF                              |                2 |              6 |
+|  pg/cdr/data_reg[7]_i_2_n_0    |                                                              |                                         |                4 |              7 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[13]                             | reset_IBUF                              |                3 |              7 |
+|  clk_100MHz_IBUF_BUFG          | uart_trans/uart_rx_inst/FSM_sequential_state_reg_reg[0]_0[0] |                                         |                2 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/b_next                                 | reset_IBUF                              |                1 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/dout[7]_i_1_n_0                        |                                         |                2 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[2]                              | reset_IBUF                              |                3 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[3]                              | reset_IBUF                              |                2 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[4]                              | reset_IBUF                              |                4 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[5]                              | reset_IBUF                              |                3 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[6]                              | reset_IBUF                              |                4 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[9]                              | reset_IBUF                              |                2 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[1]                              | reset_IBUF                              |                2 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[7]                              | reset_IBUF                              |                3 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[8]                              | reset_IBUF                              |                2 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[0]                              | reset_IBUF                              |                3 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[11]                             | reset_IBUF                              |                3 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[12]                             | reset_IBUF                              |                3 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_rec/uart_rx_inst/p_0_in[10]                             | reset_IBUF                              |                2 |              8 |
+|  clk_100MHz_IBUF_BUFG          | uart_trans/uart_rx_inst/b_next                               | reset_IBUF                              |                1 |              8 |
+|  vgc/r_25MHz_reg[1]_0[0]       | vgc/v_count_next_1                                           |                                         |                4 |             10 |
+|  vgc/r_25MHz_reg[1]_0[0]       |                                                              |                                         |                5 |             10 |
+|  vgc/E[0]                      |                                                              |                                         |                3 |             12 |
+|  clk_100MHz_IBUF_BUFG          | vgc/r_25MHz_reg[1]_0[0]                                      |                                         |                5 |             12 |
+|  clk                           |                                                              |                                         |                4 |             18 |
+|  clk_100MHz_IBUF_BUFG          |                                                              | clk_and_cal/clk_div/counter[26]_i_1_n_0 |                8 |             27 |
+|  clk_100MHz_IBUF_BUFG          |                                                              | reset_IBUF                              |               12 |             33 |
+|  clk_100MHz_IBUF_BUFG          | uart_demod/days0_carry__8_n_2                                |                                         |               16 |             76 |
+|  clk_100MHz_IBUF_BUFG          |                                                              |                                         |               40 |            101 |
++--------------------------------+--------------------------------------------------------------+-----------------------------------------+------------------+----------------+
+
+

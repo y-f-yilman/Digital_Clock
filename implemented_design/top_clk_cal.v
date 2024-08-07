@@ -9,12 +9,12 @@
 
 module top_clk_cal(
     input clk_100MHz,
-//    input [20:0] date_input,
-//    input [16:0] time_input,
+    input [20:0] date_input,
+    input [16:0] time_input,
 //    input [16:0] initial_time,
 //    input over_write,                                                   // over write signal
     input reset,                                                        // reset switch
-    input switch_15, switch_14, switch_13,                              // set clock speed
+    input switch_15, switch_14, switch_13, switch_11,                            // set clock speed
     input switch_0, switch_1, switch_2, switch_3, switch_4, switch_5,   // set seconds
     input pause, inc_hour, inc_minute, dec_hour, dec_minute,            // M-button / U-button / R-button / D-button / L-button
     output [5:0] sec_out,                                               // second outputs
@@ -38,10 +38,10 @@ module top_clk_cal(
 
     digital_clock clock(
         .clk_1hz(clk),              
-        //.time_ow(over_write),       
+        .time_set(switch_11),       
         .time_reset(reset),         
         .time_pause(pause),         
-        //.time_in(time_input),       
+        .time_in(time_input),       
         //.initial_time(initial_time),
         .hour_inc(inc_hour),        
         .hour_dec(dec_hour),        
@@ -60,10 +60,11 @@ module top_clk_cal(
 
     digital_calendar cal(
         .clk(clk),
-        //.date_ow(over_write),
+        .date_ow(switch_11),
         .hour_in(hour_out),                                  
-        //.date_in(date_input),                       
+        .date_in(date_input),                       
         .day_1s(d_1s),
+        .rst(reset),
         .day_10s(d_10s),                        
         .month_1s(m_1s),
         .month_10s(m_10s),                    
@@ -74,4 +75,3 @@ module top_clk_cal(
     );
     
 endmodule
-

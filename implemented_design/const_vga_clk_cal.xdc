@@ -22,6 +22,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports {switch_4}]
 ## sw5
 set_property PACKAGE_PIN V15 	 [get_ports {switch_5}]					
 set_property IOSTANDARD LVCMOS33 [get_ports {switch_5}]
+##sw11
+set_property PACKAGE_PIN R3 [get_ports overwrite]					
+set_property IOSTANDARD LVCMOS33 [get_ports overwrite]
 ## sw12
 set_property PACKAGE_PIN W2 	 [get_ports {reset}]					
 set_property IOSTANDARD LVCMOS33 [get_ports {reset}]
@@ -34,6 +37,9 @@ set_property IOSTANDARD LVCMOS33 [get_ports {switch_14}]
 ## sw15
 set_property PACKAGE_PIN R2 	 [get_ports {switch_15}]					
 set_property IOSTANDARD LVCMOS33 [get_ports {switch_15}]
+
+
+
 
 
 
@@ -128,4 +134,8 @@ set_property PACKAGE_PIN P19     [get_ports hsync]
 set_property IOSTANDARD LVCMOS33 [get_ports hsync]
 set_property PACKAGE_PIN R19     [get_ports vsync]						
 set_property IOSTANDARD LVCMOS33 [get_ports vsync]
+
+set_property -dict { PACKAGE_PIN B18   IOSTANDARD LVCMOS33 } [get_ports rx]
+set_property -dict { PACKAGE_PIN A18   IOSTANDARD LVCMOS33 } [get_ports tx
+]
 

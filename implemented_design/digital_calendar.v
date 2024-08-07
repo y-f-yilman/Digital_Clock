@@ -1,20 +1,20 @@
 // Digital Calendar Module
 module digital_calendar#(parameter YEARRES = 12)(
     input clk,                                              // System clock signal
-    input date_ow,                                          // Overwrite date
+    input rst,                                              // Reset signal
+    input date_ow,                                          // Overwrite date signal
     input [4:0] hour_in,                                    // Hour input signal
     input [(YEARRES+8):0] date_in,                          // Date input signal in the format ddddd_mmmm_yyyyyyyyyyyy
     output [3:0] day_1s, day_10s,                           // BCD outputs for days
     output [3:0] month_1s, month_10s,                       // BCD outputs for months
     output [3:0] year_1s, year_10s, year_100s, year_1000s   // BCD outputs for years
-
 );
 
     // Separate the input date into day, month, and year
     wire [4:0] day_in;
     wire [3:0] month_in;
     wire [(YEARRES-1):0] year_in;
-    assign {day_in, month_in, year_in} = date_in;
+    assign {year_in, month_in, day_in} = date_in;
 
     // Registers to store the current date
     reg [4:0] day_reg, day_reg_del;
@@ -30,40 +30,59 @@ module digital_calendar#(parameter YEARRES = 12)(
 
     // Edge detection for year and month changes
     assign new_year = (month_reg == 4'd1) & (month_reg_del != 4'd1);
-    assign new_month = (day_reg == 4'd1) & (day_reg_del != 4'd1);
+    assign new_month = (day_reg == 5'd1) & (day_reg_del != 5'd1);
 
     // Detect a new day
-    always @(posedge clk) begin
-        new_day <= (hour_in == 5'd0) & (hour_reg == 5'd23);
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            new_day <= 1'b0;
+        end else begin
+            new_day <= (hour_in == 5'd0) & (hour_reg == 5'd23);
+        end
     end
 
     // Generate delayed signals for edge detection
-    always @(posedge clk) begin
-        hour_reg <= hour_in;
-        day_reg_del <= day_reg;
-        month_reg_del <= month_reg;
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            hour_reg <= 5'd0;
+            day_reg_del <= 5'd0;
+            month_reg_del <= 4'd0;
+        end else begin
+            hour_reg <= hour_in;
+            day_reg_del <= day_reg;
+            month_reg_del <= month_reg;
+        end
     end
 
     // Handle year updates
-    always @(posedge clk) begin
-
-        if (new_year) begin
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            year_reg <= 2002;
+        end else if (date_ow) begin
+            year_reg <= year_in;
+        end else if (new_year) begin
             year_reg <= year_reg + {{(YEARRES-1){1'd0}}, 1'd1}; 
         end
     end
 
     // Handle month updates
-    always @(posedge clk) begin
-
-        if (new_month) begin
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            month_reg <= 4'd3;
+        end else if (date_ow) begin
+            month_reg <= month_in;
+        end else if (new_month) begin
             month_reg <= (month_reg == 4'd12) ? 4'd1 : (month_reg + 4'd1); 
         end
     end     
 
     // Handle day updates
-    always @(posedge clk) begin
- 
-        if (new_day) begin
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            day_reg <= 5'd7;
+        end else if (date_ow) begin
+            day_reg <= day_in;
+        end else if (new_day) begin
             casex(month_reg)
                 4'd2: begin // Special case for February
                     if (year_reg[1:0] == 2'b00) begin
@@ -88,7 +107,7 @@ module digital_calendar#(parameter YEARRES = 12)(
         end
     end
 
-    // convert binary values to output bcd values
+    // Convert binary values to output BCD values
     assign day_10s = day_reg / 10;
     assign day_1s  = day_reg % 10;
     assign month_10s = month_reg / 10;
@@ -99,5 +118,3 @@ module digital_calendar#(parameter YEARRES = 12)(
     assign year_1s    = year_reg % 10;
 
 endmodule
-
-
