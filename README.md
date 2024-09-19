@@ -1,1 +1,1 @@
-BİL-265 Projesi herkese hayırlı olsun.
+This repo is now archived.
